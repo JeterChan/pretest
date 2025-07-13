@@ -4,7 +4,7 @@ services:
   db:
     image: postgres
     volumes:
-      - ./data/db:/var/lib/postgresql/data
+      - pg_data:/var/lib/postgresql/data
     ports:
       - 7432:7432
     environment:
@@ -29,3 +29,6 @@ services:
     command: sh run_web.sh
     depends_on:
       - db
+
+volumes:
+  pg_data:
